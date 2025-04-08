@@ -1,0 +1,39 @@
+<!-- Coin Flip game -->
+<!-- Generate a random number with Math.random(). Save it in a variable.
+ 
+Create an if-statement and check:
+1. If the number is less than 0.5, then display 'heads' in the console.
+2. Else display 'tails' in the console.
+
+Instead of displaying 'heads' or 'tails' in the console, save the result in a variable called 'result'.
+
+Let's say we're trying to guess the result. Create a variable called 'guess' and save your guess ('heads' or 'tails')
+1. If your guess matches the result, display 'You WIN!' in the console.
+2. Else display 'You LOSE!' in the console. 
+
+(Challenge) Instead of using if-statements in the previous exercises, try switching them into ternary operations (condition ? A:B).
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Coin Flip</title>
+    </head>
+    <body>
+        <script>
+            const coinFlip = Math.random();
+            const result = coinFlip < 0.5 ? 'heads' : 'tails';
+            console.log(result);
+            
+            const guess = 'tails';
+            if(result == guess) {
+                console.log("You win!");                
+            } else {
+                console.log("You Lose!");                
+            }
+
+            result === guess ? 'You WIN!' : 'You LOSE!'
+        </script>
+    </body>
+</html>
