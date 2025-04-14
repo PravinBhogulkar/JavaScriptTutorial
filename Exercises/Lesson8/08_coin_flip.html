@@ -1,0 +1,51 @@
+<!-- Challenge Exercises -->
+<!-- We'll improve the coin flip game from exercise 6 to be like the rock paper scissors game.
+ 1. Copy the code code from exercise.
+ 2. Create 2 buttons to play the game.
+ 3. When clicking 'heads' play the game with guess = 'HEADS'.
+ 4. When clicking 'tails' play the game with guess = 'TAILS'.
+ 3. Create a function 'playGame(guess) to reuse the code.'
+ -->
+
+<!-- Create a score object { wins: 0, losses: 0}, update the score each time after playing, and display the score in the console. -->
+
+<!--  Use localStorage to save and load the score 
+  (HINT: You'll need to use JSON.stringify() to convert the score object to a string). -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Coin Flip</title>
+    </head>
+    <body>
+        
+        <button onclick="playGame('heads')"> HEADS </button>
+        <button onclick="playGame('tails')"> TAILS </button>
+        <button onclick="localStorage.removeItem('score')"> RESET </button>
+
+        <script>
+            const score = JSON.parse(localStorage.getItem('score')) || {
+                wins: 0,
+                loses: 0
+            };
+            function playGame(guess){
+                const coinFlip = Math.random();
+                const result = coinFlip < 0.5 ? 'heads' : 'tails';
+                console.log(result);
+                
+                if(result == guess) {
+                    score.wins++;
+                    console.log("You win!");                
+                } else {
+                    score.loses++;
+                    console.log("You Lose!");                
+                }
+                
+                result === guess ? 'You WIN!' : 'You LOSE!'
+                localStorage.setItem('score', JSON.stringify(score));
+                console.log(localStorage.getItem('score'));
+            }
+
+        </script>
+    </body>
+</html>
