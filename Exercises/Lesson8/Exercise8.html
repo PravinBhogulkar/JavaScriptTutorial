@@ -1,0 +1,66 @@
+<!-- Let's say in the Amazon Project, we have a basketball product.
+This product has a name of 'basketball', a price of 2095 cents.
+Create an object to represent this produxt and display it in the console. -->
+
+<!-- Continuing above, let's say we want to increase the price by 500 cents.
+ Use dot notstion to increase the price, and display the updated object in the console. -->
+
+<!-- Using bracket notation, add a property 'delivery-time' to the object with the value '3 days'.
+ Display the updated object in the console. -->
+
+<!-- Create a function 'comparePrice(product1, product2)', which takes 2 products (with 'name' and 'price' properties) and returns the product that is less expensive.
+Create 2 products and try out the function.  -->
+
+<!-- Create a function 'isSameProduct(product1,product2)' which returns true if 2 products have the same values inside ('name' and 'price').
+ If not, return false. Create 2 products and try out the function.
+ (HINT: Objects are references so you can't compare them directly.) -->
+
+<!-- Using Google or A.I. tool, search how to convert a string to all lowercase with JavaScript ('Good Morning' => 'good morning') -->
+
+<!-- Search how to repeat a string many times ('test' 2 times => 'testtest') -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Exercise 8 </title>
+    </head>
+    <script>
+        const product = {
+            name: 'basketball',
+            price: 2095
+        };
+
+        console.log(product);
+       
+        product.price +=500;
+        console.log(product.price);
+       
+        product['delivery-time'] = '3 days';
+        console.log(product);
+        
+        const product1 = {
+            name: 'basketball',
+            price: 295
+        };
+
+        
+        function comparePrice(product1,product2)    {   
+            return (product1.price < product2.price) ? product1 : product2;
+        }
+
+        console.log(comparePrice(product, product1));
+        console.log(product,product1);
+       
+        
+        function isSameProduct(product1,product2) {
+            return (product1.name === product2.name && product1.price === product2.price);
+        }
+
+        console.log(isSameProduct(product,product1));
+        
+        // const str = 'Good Morning';
+        console.log('Good Morning'.toLowerCase());
+        console.log('test'.repeat(2));
+        
+        
+    </script>
+</html>
