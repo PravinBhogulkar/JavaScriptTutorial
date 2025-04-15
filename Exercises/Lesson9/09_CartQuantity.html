@@ -1,0 +1,65 @@
+<!-- Create a copy of the Cart Quantity project from exercise 7.
+ 1. Create a paragraph (<p></p>) to display the quantity. 
+ 2. Whenever we update the queantity, display it on the page instead of in the console. Also, display the quantity when page first loads. -->
+
+<!-- Modify 'updateCartQuantity' so that if the quantity is invalid, alert(); and then return;
+ (this is called an early return). 
+ An early return make our code cleaner because we can remove the 'else-if' / 'else'. -->
+
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title> Cart Quantity</title>
+    </head>
+    <body>
+        <button onclick="displayCartQuantity()">Show Quantity
+        </button>
+        
+        <button onclick="updateCartQuantity(1);">Add to Cart
+        </button>
+        
+        <button onclick="updateCartQuantity(+2);">+2
+        </button>
+        
+        <button onclick="updateCartQuantity(+3);">+3
+        </button>
+
+        <button onclick="updateCartQuantity(+4);">+4
+            </button>
+
+        <button onclick="updateCartQuantity(+5);">+5</button>
+
+        <button onclick="updateCartQuantity(-1);">Remove from cart</button>
+
+        <button onclick="updateCartQuantity(-2);">-2</button>
+
+        <button onclick="updateCartQuantity(-3);">-3</button>
+        
+        <button onclick="displayCartQuantity()">reset button</button>
+
+        <p class="js-quantity"></p>
+        <script>
+            let cartQuantity = 0;
+            displayCartQuantity(); 
+
+            function updateCartQuantity (value) {
+                if(cartQuantity + value > 10){
+                    alert('The cart is full');
+                    return;
+                } 
+
+                if (cartQuantity + value < 0) {
+                    alert ('Not enough items in the cart')
+                    return;
+                }                     
+                
+                cartQuantity += value;
+                console.log(`Cart Quantity: ${cartQuantity}`);
+            }
+
+            function displayCartQuantity() {
+                document.querySelector('.js-quantity').innerHTML = `Cart Quantity: ${cartQuantity}`;
+            }
+        </script>
+    </body>
+</html>

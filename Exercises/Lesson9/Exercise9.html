@@ -1,0 +1,94 @@
+<!-- Create a <button>9a</button>. Use document.query.Selector('button') to get the button from the page, and then display it in the console. -->
+
+<!-- Continuing above, create another button <button> 9b </button> below.
+  Using JavaScript, change the text in the second button to '9b dine!'
+  (HINT: add a class and use .querySelector).-->
+
+<!-- Create 2 buttons 'heads' and 'tails', and a paragraph (<p></p>) underneath.
+ When clicking the 'heads' button,display 'You chose: heads' in the paragraph.
+ When the 'tails' button, display 'You chose:tails'. -->
+
+<!-- Create a text box (<input>) and a submit button.
+ When clicking 'Submit', display 'Your name is ${text}' on the page (${text} = the text inside the text box)
+ (HINT: use .value to get the text inside an <input>). -->
+
+<!-- Modify exercise 9d so that when you press 'Enter' in the <input>, it will also display the same message on the page
+ (HINT: use onkeydown and the event object). -->
+
+<!-- Continuing above, create a function to reuse the code (if you already did this, skip the exercise). -->
+
+<!-- Challenge Exercise -->
+<!-- Copy the code from 09-dom-projects.html into this file.
+ In the Amazon Shipping Calculator, enter a cost of 7.99 and click 'Calculate'.
+ What issue do you see? Find a fix for this issue. -->
+
+<!-- Let's create the project on the right:
+ 1. Whenever we type in the text box, update the text on the page.
+ 2. To do this, we'll learn another event called <input onkeyup="...">.
+ 3. This runs code after we press a key and release it (key comes up). -->
+
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title> Document Object Model (DOM) </title>
+    </head>
+    <body>
+        <button> 9a </button>
+        <button onclick="changeText()" class="js-button2"> 9b</button>
+
+        <button onclick="toss('heads')" class="js-heads"> heads </button>
+        <button onclick="toss('tails')" class="js-tails"> tails </button>
+        <p class="js-choice"></p>
+
+        <input onkeydown="displayText()" class="js-input">
+        <button onclick="displayText()"> Submit </button>
+        <p class="js-display"></p>
+        
+        <p> Amazon Shipping Calculator </p>
+        <input placeholder="Cost of Order" class="js-cost-input" onkeydown="handleCostKeyDown(event)">
+        <button onclick="calculateTotal()"> Calculate </button>
+        <p class="js-total"></p>
+
+        <input onkeyup="display()" class="js-input-text">
+        <p class="js-output"></p>
+        
+        <script>
+            const button1 = document.querySelector('button');
+            console.log(button1);
+            function changeText(){
+                const button2 = document.querySelector('.js-button2').innerHTML = '9b done!';
+                console.log(button2);
+            }
+
+            function toss(event){
+                console.log(event);
+                
+                document.querySelector('.js-choice').innerHTML = `You chose: ${event}.`
+            }
+
+            function displayText() {
+                const input = document.querySelector('.js-input');
+                document.querySelector('.js-display').innerHTML = `Your name is: ${input.value}`;
+            }
+
+        function handleCostKeyDown(event){
+            if(event.key === 'Enter') calculateTotal()
+        }
+        
+        function calculateTotal(){
+            const inputElement = document.querySelector('.js-cost-input');
+            let cost = Number(inputElement.value);
+            (cost < 40) ? (cost = (cost
+            *100+1000)/100) : cost;
+
+            document.querySelector('.js-total').innerHTML = `$${cost}`;
+
+        }
+
+        function display() {
+            const input = document.querySelector('.js-input-text');
+            document.querySelector('.js-output').innerHTML = input.value;
+        }
+        </script>
+    </body>
+</html>
