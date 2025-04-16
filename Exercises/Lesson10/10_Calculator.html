@@ -1,0 +1,84 @@
+<!-- Make a copy of exercise 9 calculator project 
+ 1. Using CSS, style the calculator project to supersimple.dev/projects/calculator-final
+ 2. Continuing above, seperate each language into its own file. (if you didn't fo this already). -->
+
+ <!DOCTYPE html>
+ <html>
+     <head>
+         <title>Calculator</title>
+         <link rel="stylesheet" href="../../styles/10_Calculator.css">
+     </head>
+     <body>
+         <p> Calculator </p>
+         <p class="js-calculation"></p>
+         <p>
+             <button onclick="updateCalculation('1');" class="calculation">1
+             </button>
+     
+             <button onclick="updateCalculation('2');" class="calculation">2
+             </button>
+             
+             <button onclick="updateCalculation('3');" class="calculation">3
+             </button>
+     
+             <button onclick="updateCalculation(' + ');" class="operation">+
+             </button>
+         </p>
+ 
+         <p>
+             <button onclick="updateCalculation('4');" class="calculation">4
+             </button>
+     
+             <button onclick="updateCalculation('5');" class="calculation">5
+             </button>
+             
+             <button onclick="updateCalculation('6');" class="calculation">6
+             </button>
+     
+             <button onclick="updateCalculation(' - ');" class="operation">-
+             </button>
+         </p>
+ 
+         <p>
+             <button onclick="updateCalculation('7');" class="calculation">7
+             </button>
+     
+             <button onclick="updateCalculation('8');" class="calculation">8
+             </button>
+             
+             <button onclick="updateCalculation('9');" class="calculation">9
+             </button>
+     
+             <button onclick="updateCalculation(' * ');" class="operation">*
+             </button>
+         </p>
+ 
+         <p>
+             <button onclick="updateCalculation('0');" class="calculation">0
+             </button>
+     
+             <button onclick="updateCalculation('.');" class="calculation">.
+             </button>
+             
+             <button onclick="
+                 calculation = eval(calculation)
+                 localStorage.setItem('calculation',calculation);
+                 showCalcution();
+                 console.log(calculation);
+             " class="calculation">=
+             </button>
+
+             <button onclick="updateCalculation(' / ');" class="operation">/
+             </button>
+     
+         </p>
+         <button onclick="
+             calculation = '';
+             localStorage.removeItem('calculation');
+             showCalcution();
+             console.log('Cleared.')" class="calculation clearButton">Clear
+         </button>
+     <script src="../../scripts/10_Calculator.js">
+     </script>
+     </body>
+ </html>
