@@ -1,0 +1,44 @@
+<!-- HTML,CSS, and JavaScript Together -->
+
+<!-- Create the following buttons using HTML and CSS. The styles don't have to be exact (just use your best judgement).
+1. Amazon Button Add to Cart rgb (255,216,20)
+2. Uber Buttons Request now and Schedule for later rgb(230,230,230) -->
+
+<!-- classList has another method, classList.contains('class-name'), which checks id an element has a class.
+ 1. Creata a button: <button class="js-button">Test</button>
+ 2. Use document.querySelector() and classList.contains('js-button') to check if this button has the class 'js-button'.
+ console.log() the result. -->
+
+<!-- Create the button on the right. When clicking this button, it should turn ON/OFF. 
+ HINTS:
+ 1. When clicking the button, add or remove the class 'is-toggeled', and use it to change the styling.
+ 2. Use if(classList.contains('is-toggled')) to decide whether to add or remove the 'is-toggled' class. -->
+
+<!-- Continuing above, create 3 buttons that can be turned ON/OFF.
+ 1. Gaming
+ 2. Music
+ 3. Tech -->
+
+<!-- Continuing above, use a function to reuse the code, and seperate each language into its own file. (if you didn't do this already). -->
+
+<!-- Challenge Exercises -->
+<!-- Modify above so that only 1 button can be ON at a time. -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> HTML, CSS, and JavaScript Together </title>
+        <link rel="stylesheet" href="../../styles/Exercise10.css">
+    </head>
+    <body>
+        <button class="amazon-button"> Add to Cart</button>
+        <button class="request-now"> Request Now</button>
+        <button class="schdule">Schdule for later</button>
+        <button class="js-button">Test</button>
+        <button class="color-change js-color-change" onclick="colorChange('.js-color-change')">Gaming</button>
+        <button class="color-change js-color-change2" onclick="colorChange('.js-color-change2')">Music</button>
+        <button class="color-change js-color-change3" onclick="colorChange('.js-color-change3')">Tech</button>
+
+        <script src="../../scripts/Exercise10.js">        </script>
+    </body>
+</html>
